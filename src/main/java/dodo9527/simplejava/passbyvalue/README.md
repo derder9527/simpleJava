@@ -192,17 +192,22 @@ public class JavaIsPassByValue {
 
   
 
-結論：不管是不是基本型別，Java always pass by value !
+## 結論
+
+- 不管是不是基本型別，Java always pass by value ! 
+- 為了預防這種參數在方法之間傳來傳去一不小心就搞錯使用方式的問題，建議方法簽章自動加上final修飾子，讓參數無法透過`=`號更換實體物件
 
 [Source code at GitHub](https://github.com/derder9527/simpleJava/tree/master/src/main/java/dodo9527/simplejava/passbyvalue)
 
 
 
-REF:[Java Pass By Value Stack Heap Memory Explanation](https://www.youtube.com/watch?v=_y7k_0edvuY)
+REF:
 
-​	[Heap with Reference  Instance Variables](https://www.youtube.com/watch?v=UcPuWY0wn3w)
+[Java Pass By Value Stack Heap Memory Explanation](https://www.youtube.com/watch?v=_y7k_0edvuY)
 
-​       {%https://www.youtube.com/watch?v=UcPuWY0wn3w%}
+[Heap with Reference  Instance Variables](https://www.youtube.com/watch?v=UcPuWY0wn3w)
+
+
 
 
 
