@@ -4,6 +4,8 @@
 
 原來是我想的傳值跟址跟定義的不太一樣！
 
+摘錄自[Java is Pass-by-Value, Dammit!](http://www.javadude.com/articles/passbyvalue.htm)
+
 ```wiki "Java is Pass-by-Value, Dammit!" http://www.javadude.com/articles/passbyvalue.htm
 
 Pass-by-value
@@ -88,6 +90,121 @@ System.out.println("Car logo will be "+x.getLogo());//print結果
 ```bash
 Car logo will be BMW
 ```
+
+
+
+---
+
+## the other demo 
+
+```java "**JavaIsPassByValue.java** " https://github.com/derder9527/simpleJava/blob/master/src/main/java/dodo9527/simplejava/passbyvalue/JavaIsPassByValue.java
+package dodo9527.simplejava.passbyvalue;
+
+public class JavaIsPassByValue {
+
+	public static void main(String[] args) {
+		System.out.println("測試基本型別是否passByValue");
+		primitiveTest();
+		System.out.println("測試物件型別是否passByValue");
+		objectTest();
+	}
+	
+	/**
+	 * 測試primitive type 是否 passByValue
+	 */
+	private static void primitiveTest(){
+		int x =10;
+		int y =20;
+		//invoke一個新的方法，並在方法內交換object instance
+		primitiveSwap(x, y);
+		System.out.println("primitiveTest result:");
+		System.out.println("x = "+x);
+		System.out.println("y = "+y);
+		
+	}
+	
+	/**
+	 * pass primitive parameter for test
+	 * @param a
+	 * @param b
+	 */
+	private static void primitiveSwap(int swapX ,int swapY){
+		int temp=swapX;
+		swapX=swapY;
+		swapY=temp;
+		System.out.println("Inside of primitiveSwap");
+		System.out.println("swapX = "+swapX);
+		System.out.println("swapY = "+swapY);
+	}
+	
+	/**
+	 * 測試Object type 是否 passByValue
+	 */
+	private static void objectTest(){
+		Car x = new Car();
+		x.setLogo("BMW");
+		Car y=new Car();
+		y.setLogo("Benz");
+		objectSwap(x, y);
+		System.out.println("primitiveTest result:");
+		System.out.println("x = "+x.getLogo());
+		System.out.println("y = "+y.getLogo());
+		
+	}
+	
+	/**
+	 * pass primitive parameter for test
+	 * @param swapX
+	 * @param swapY
+	 */
+	private static void objectSwap(Car swapX ,Car swapY){
+		Car temp=swapX;
+		swapX=swapY;
+		swapY=temp;
+		System.out.println("Inside of objectSwap");
+		System.out.println("swapX = "+swapX.getLogo());
+		System.out.println("swapY = "+swapY.getLogo());
+	}
+}
+
+```
+
+
+
+- output
+
+  ```java
+  測試基本型別是否passByValue
+  Inside of primitiveSwap
+  swapX = 20
+  swapY = 10
+  primitiveTest result:
+  x = 10
+  y = 20
+  測試物件型別是否passByValue
+  Inside of objectSwap
+  swapX = Benz
+  swapY = BMW
+  primitiveTest result:
+  x = BMW
+  y = Benz
+  ```
+
+  
+
+結論：不管是不是基本型別，Java always pass by value !
+
+[Source code at GitHub](https://github.com/derder9527/simpleJava/tree/master/src/main/java/dodo9527/simplejava/passbyvalue)
+
+
+
+REF:[Java Pass By Value Stack Heap Memory Explanation](https://www.youtube.com/watch?v=_y7k_0edvuY)
+
+​	[Heap with Reference  Instance Variables](https://www.youtube.com/watch?v=UcPuWY0wn3w)
+
+​       {%https://www.youtube.com/watch?v=UcPuWY0wn3w%}
+
+
 
 
 
