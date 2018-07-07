@@ -10,5 +10,7 @@ git clone https://github.com/derder9527/simpleJava.git
 ```
 
 **import as maven project in IDE**
-
 ---
+
+## List of parctice
+- [Java is pass by value](http://dodo9527.pw/blog/wordpress/java-is-pass-by-value/)
