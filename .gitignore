@@ -1,12 +1,9 @@
 # maven target file
 target/
 
-# eclipse 
+# eclipse
 .project/
 .settings/
 
-
-
-
-
-
+#mac trash
+*.DS_Store
