@@ -1,7 +1,7 @@
 # 這裡有一些我做的java實驗，有錯誤的話麻煩指正 謝謝
 
 
-## How to user ?
+## How to use ?
 
 project use maven to build ， 並使用package來切分不同的實驗
 

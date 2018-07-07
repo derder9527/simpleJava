@@ -6,8 +6,7 @@
 
 摘錄自[Java is Pass-by-Value, Dammit!](http://www.javadude.com/articles/passbyvalue.htm)
 
-```wiki "Java is Pass-by-Value, Dammit!" http://www.javadude.com/articles/passbyvalue.htm
-
+```wiki 
 Pass-by-value
     The actual parameter (or argument expression) is fully evaluated and the resulting value is copied into a location being used to hold the formal parameter's value during method/function execution. That location is typically a chunk of memory on the runtime stack for the application (which is how Java handles it), but other languages could choose parameter storage differently.
     
@@ -97,7 +96,7 @@ Car logo will be BMW
 
 ## the other demo 
 
-```java "**JavaIsPassByValue.java** " https://github.com/derder9527/simpleJava/blob/master/src/main/java/dodo9527/simplejava/passbyvalue/JavaIsPassByValue.java
+```java 
 package dodo9527.simplejava.passbyvalue;
 
 public class JavaIsPassByValue {
