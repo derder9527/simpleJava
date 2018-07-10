@@ -16,7 +16,7 @@ then
   touch $folder/README.md
   echo  "\n\n\n" >> $folder/README.md
   echo "![$practiceName](https://raw.githubusercontent.com/derder9527/simpleJava/master/src/main/java/dodo9527/simplejava/$practiceName/$practiceName"_demo.gif")">>$folder/README.md
-  echo  "\n\n\n" >>../$folder/README.md
+  echo  "\n\n\n" >>$folder/README.md
   echo "[Source code at GitHub](https://github.com/derder9527/simpleJava/tree/master/src/main/java/dodo9527/simplejava/$practiceName)">>$folder/README.md
   echo "README.md 建立成功"
 else
