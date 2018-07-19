@@ -249,6 +249,8 @@ REF:
 
 [深入解析String#intern](https://tech.meituan.com/in_depth_understanding_string_intern.html)
 
+[Java Performance Tuning Guide](http://java-performance.info/string-intern-in-java-6-7-8/)
+
 
 
 
