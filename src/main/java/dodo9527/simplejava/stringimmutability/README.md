@@ -1,18 +1,18 @@
-# String Immutability 
+# String Immutability
 
 節錄自[String API](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html)
 
 ```wiki
 The String class represents character strings. All string literals in Java programs, such as "abc", are implemented as instances of this class.
 
-Strings are constant; their values cannot be changed after they are created... Because String objects are immutable they can be shared. 
+Strings are constant; their values cannot be changed after they are created... Because String objects are immutable they can be shared.
 ```
 
 ## 什麼是String ?
 
 String 這個class 代表字元**串**，在java中任何`字串符號`都是這個class的實作物件。
 
-接著 請記得 **Java  String is Immutable ** 
+接著 請記得 **Java  String is Immutable** 
 
 ---
 
@@ -21,7 +21,7 @@ String 這個class 代表字元**串**，在java中任何`字串符號`都是這
 先來看看String 的 source code
 
 ```java
- 
+
  * @author  Lee Boynton
  * @author  Arthur van Hoff
  * @author  Martin Buchholz
@@ -40,7 +40,7 @@ public final class String
 `String ` class中有兩個私有實體變數(重要的)
 
 - `char value[]`  String由字元所串成，這個陣列用來存放真實的字元。
-- `int hash` 這個變數用於cache instance的hashcode 
+- `int hash` 這個變數用於cache instance的hashcode
 
 作者在撰寫`String`時，除了建構式以及`hashcode()` 等public方法有辦法變動到這兩個數值以外，**沒有辦法變更這兩個實體變數** ，這種從設計上就讓這個class所初始化的任何物件(instance)的內部數值在建構後皆不可變動的形容詞就叫做 Immutable
 
@@ -48,9 +48,9 @@ public final class String
 
 ## 為什麼String 要 Immutable ？
 
-- 為了字串池(**String Pool**)的需要 
+- 為了字串池(**String Pool**)的需要
 
-`All literal strings and string-valued constant expressions are interned.` -節錄自[String.intern()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#intern()) 
+`All literal strings and string-valued constant expressions are interned.` -節錄自[String.intern()](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#intern())
 
 > 在java中有個概念叫[Constant Pool](http://blog.51cto.com/chenying/120900)，在編譯期就會把常數們放在`.class`文件裡的常數中，而String pool 是這個常數池的其中一種類型，注意只有用"內容"的字串才算常數喔！
 
@@ -65,7 +65,7 @@ String y="abc";
 
 
 
-- 保存hashcode的快取 
+- 保存hashcode的快取
 
   節錄自`String.hashCode()`
 
@@ -74,7 +74,7 @@ String y="abc";
           int h = hash;
           if (h == 0 && value.length > 0) {
               char val[] = value;
-  
+
               for (int i = 0; i < value.length; i++) {
                   h = 31 * h + val[i];
               }
@@ -84,11 +84,11 @@ String y="abc";
       }
   ```
 
-  
+
 
   因為String的不可變動性，只要執行過hashCode()方法後，string的hashcode 就會被cache在hash這個變數中，可以加快在用String來當key的各種集合物件中(HashMap,HashSet)的存取速度。
 
-  
+
 
 - 安全性
 
@@ -120,9 +120,9 @@ String var=new String("abc"); //變數instance
 > System.out.println("ss1==ss2 ?"+(ss1==ss2) ); //false
 > ```
 >
-> 
+>
 
-```java 
+```java
 String i5=new String("macbookPro").intern();
 String i6=new String("macbookPro").intern();
 System.out.println("i5==i6 ?"+(i5==i6));//true
@@ -152,9 +152,9 @@ public class StringIsImmutable {
 		System.out.println("stringInternCheck");
 		stringInternCheck();
 	}
-	
+
 	/**
-	 * use == to check if multiple strings are using same object 
+	 * use == to check if multiple strings are using same object
 	 */
 	private static void stringReferenceCheck(){
 		String s1="abcd";
@@ -172,13 +172,13 @@ public class StringIsImmutable {
 		System.out.println("s1==s5 ?"+(s1==s5));//false
 		System.out.println("s1==s8 ?"+(s1==s8));//false
 		System.out.println("s1==s9 ?"+(s1==s9));//false
-		
+
 		String ss1=new String("abcd");
 		String ss2=new String("abcd");
 		System.out.println("ss1==ss2 ?"+(ss1==ss2) ); //false
 	}
-	
-	
+
+
 	/**
 	 * 用兩個class來保存相等的字串常數，並作reference check
 	 */
@@ -187,7 +187,7 @@ public class StringIsImmutable {
 		StringContextTwo c2=new StringContextTwo();
 		System.out.println("c1.constant == c2.constant ?"+(c1.getConstant()== c2.getConstant())); //true
 	}
-	
+
 	/**
 	 * String的intern方法測試
 	 */
@@ -213,7 +213,7 @@ public class StringIsImmutable {
 - output
 
 ```java
-stringReferenceCheck 
+stringReferenceCheck
 s1==s2 ?true
 s1==s3 ?true
 s1==s4 ?false
@@ -250,8 +250,3 @@ REF:
 [深入解析String#intern](https://tech.meituan.com/in_depth_understanding_string_intern.html)
 
 [Java Performance Tuning Guide](http://java-performance.info/string-intern-in-java-6-7-8/)
-
-
-
-
-
