@@ -12,6 +12,11 @@ public class StringIsImmutable {
 		System.out.println("========================");
 		System.out.println("stringInternCheck");
 		stringInternCheck();
+		
+		String c = new String("abcd").intern();
+		String d = new String("abcd").intern();
+		System.out.println(c == d); // Now true
+		System.out.println(c.equals(d)); // True
 	}
 	
 	/**

@@ -19,6 +19,7 @@ then
   echo  "\n\n\n" >>$folder/README.md
   echo "[Source code at GitHub](https://github.com/derder9527/simpleJava/tree/master/src/main/java/dodo9527/simplejava/$practiceName)">>$folder/README.md
   echo "README.md 建立成功"
+  open $folder/README.md
 else
   echo "資料夾：$folder 建立失敗！"
   exit
